@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private float terminalFallVelocity = 1.0f;
     #endregion
     #region PRIVATE MEMBERS
+    private Vector2 startPos;
     private bool isGrounded = true;
     private Rigidbody2D rb;
     #endregion
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        startPos = transform.position;
     }
 
     void FixedUpdate()
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        transform.position = startPos;
         Debug.Log("player died");
     }
 }

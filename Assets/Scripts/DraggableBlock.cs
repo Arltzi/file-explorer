@@ -1,10 +1,11 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class DraggableBlock : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject element;
+    private bool placed = false;
     private bool selected = false;
     private Vector3 startPos;
 
@@ -23,12 +24,26 @@ public class DraggableBlock : MonoBehaviour
 
     void OnMouseDown()
     {
-        Pickup();
+        if(!placed)
+        {
+            Pickup();
+        }
     }
 
     void OnMouseUp()
     {
-        Drop();
+        if(!placed)
+        {
+            Drop();
+        }
+    }
+
+    void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            ResetBlock();
+        }
     }
 
     void Pickup()
@@ -43,40 +58,33 @@ public class DraggableBlock : MonoBehaviour
 
     void Drop()
     {
-        selected = false;
-        if(TrySpawnElement(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z))))
-        {
-            // succeeds at spawning element
-            // TODO: organize by assigning to be a child of a "placed objects" object
-        }
-        else
-        {
-            // fails to spawn element
-            // return icon to beginning, deselect
-            selected = false;
-            transform.position = startPos;
-        }
+        TryPlaceElement(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)));
     }
 
-    bool TrySpawnElement(Vector3 worldPos)
+    bool TryPlaceElement(Vector3 worldPos)
     {
-        Collider2D firstColl = Physics2D.BoxCast(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)), element.GetComponent<BoxCollider2D>().size, 0, Vector2.zero).collider;
-        // Debug.Log(firstColl);
-        if(!firstColl)
+        List<Collider2D> colliders = new List<Collider2D>(); 
+        GetComponent<Collider2D>().Overlap(colliders);
+
+        selected = false;
+
+        if(colliders.Count == 0)
         {
-            Instantiate(element, worldPos, Quaternion.identity);
-            Destroy(gameObject);
+            placed = true;
             return true;
         }
         else
         {
+            transform.position = startPos;
             return false;
         }
     }
 
-    void ResetIcon()
+    void ResetBlock()
     {
-
+        placed = false;
+        selected = false;
+        transform.position = startPos;
     }
     
     void DisableSelf()
