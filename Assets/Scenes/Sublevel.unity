@@ -817,6 +817,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 10, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 5
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -825,7 +835,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 5cba634ea0860484e8f75c912df6e8d4, type: 2}
   - m_RefCount: 22
     m_Data: {fileID: 11400000, guid: a58be67fd0f20b5479e14d53886a6bda, type: 2}
@@ -838,12 +848,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 457895f023fbb414bb70d55e5b20532e, type: 3}
   - m_RefCount: 22
     m_Data: {fileID: 21300000, guid: 609fe51326d87704f8406a9ba4775384, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 23
+  - m_RefCount: 24
     m_Data:
       e00: 1
       e01: 0
@@ -872,7 +882,7 @@ Tilemap:
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
-  - m_RefCount: 23
+  - m_RefCount: 24
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -939,6 +949,16 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1060616386}
     m_ColliderPaths:
+    - - X: 110000000
+        Y: 0
+      - X: 109843752
+        Y: 0
+      - X: 100000000
+        Y: -9843750
+      - X: 100000000
+        Y: -10000000
+      - X: 110000000
+        Y: -10000000
     - - X: 80000000
         Y: -10000000
       - X: 70000000
@@ -967,6 +987,11 @@ CompositeCollider2D:
         Y: -70000000
   m_CompositePaths:
     m_Paths:
+    - - {x: 11, y: 0}
+      - {x: 10.984375, y: 0}
+      - {x: 10, y: -0.984375}
+      - {x: 10, y: -1}
+      - {x: 11, y: -1}
     - - {x: 8, y: -1}
       - {x: 7, y: -1}
       - {x: 7, y: -4}
