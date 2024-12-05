@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
     private float runVel = 1;
     [SerializeField]
     private float jumpForce = 1;
-    [SerializeField]
-    private float terminalFallVelocity = 1.0f;
+    // [SerializeField]
+    // private float terminalFallVelocity = 1.0f;
     #endregion
     #region PRIVATE MEMBERS
     private Vector2 startPos;
-    private bool isGrounded = true;
+    // private bool isGrounded = true;
     private Rigidbody2D rb;
     #endregion
 

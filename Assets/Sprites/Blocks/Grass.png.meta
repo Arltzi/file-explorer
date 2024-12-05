@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 0a6fbfb8eda4e574d9f147b94d2acc68
-AssetOrigin:
-  serializedVersion: 1
-  productId: 85838
-  packageName: Free Platform Game Assets
-  packageVersion: 1.9.4
-  assetPath: Assets/BayatGames/Free Platform Game Assets/Character/Character Source/png/2x/Body.png
-  uploadId: 484258
+guid: 2482322f6f571044bab764fc2fcda05b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -133,7 +126,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d2021d2c332a5a5488b23c22890a02e3
+    spriteID: 61c9106aee26fdb4981e999d5b967b8f
     internalID: 0
     vertices: []
     indices: 
