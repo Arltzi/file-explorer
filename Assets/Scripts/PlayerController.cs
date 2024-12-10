@@ -8,19 +8,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    #region PROPERTIES
+    #region MOVEMENT & PHYSICS
     [SerializeField]
     private float runVel = 1;
     [SerializeField]
     private float jumpForce = 1;
     // [SerializeField]
     // private float terminalFallVelocity = 1.0f;
-    #endregion
-    #region PRIVATE MEMBERS
     private Vector2 startPos;
     // private bool isGrounded = true;
     private Rigidbody2D rb;
     #endregion
+
+    private bool inSpawnArea = false;
+    public bool InSpawnArea
+    {
+        get {return inSpawnArea;}
+        set {inSpawnArea = value;}
+    }
 
     void Start()
     {
@@ -36,10 +41,28 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+       HandleInput(); 
+    }
+
+    void HandleInput()
+    {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             TryJump();
         }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            if(inSpawnArea)
+            {
+                DraggablesHolder.instance.ReturnDraggables();
+            }
+            else
+            {
+                transform.position = startPos;
+            }
+        }
+
     }
 
     void TryJump()

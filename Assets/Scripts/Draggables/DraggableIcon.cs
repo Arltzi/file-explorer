@@ -91,7 +91,6 @@ public class DraggableIcon : MonoBehaviour
 
     void DisableSelf()
     {
-        curGridPos = Vector3Int.zero;
         gameObject.SetActive(false);
     }
 }
